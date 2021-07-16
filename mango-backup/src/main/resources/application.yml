@@ -1,0 +1,12 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: mango-backup
+mango:
+  backup:
+    datasource:
+      host: 192.168.117.39
+      userName: root
+      password: 123456
+      database: mango

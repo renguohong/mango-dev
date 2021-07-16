@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "mango.backup.datasorce.host",
+      "type": "java.lang.String",
+      "description": "Description for mango.backup.datasorce.host."
+  }
+] }
