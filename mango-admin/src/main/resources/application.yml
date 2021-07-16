@@ -1,0 +1,42 @@
+spring:
+  devtools:
+    restart:
+      enabled: true
+  datasource:
+    name: druidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.117.39:3306/mango?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2b8&useSSL=true&tinyInt1isBit=false
+      username: root
+      password: 123456
+
+      #配置监控统计的拦截filters，去掉监控界面sql无法统计，wall用于防火墙
+      filters: stat,wall,log4j,config
+      max-active: 100    #最大连接数量
+      initial-size: 1    #初始化大小
+      max-wait: 6000     #获取连接等待超时时间
+      min-idle: 1        #最小连接数
+      #间隔多久才进行一次检测，检测需要关闭的空连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      #一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 50
+      max-pool-prepared-statement-per-connection-size: 20
+
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+
+#pagehelper
+pagehelper:
+  helperdialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
